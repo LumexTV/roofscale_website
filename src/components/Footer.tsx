@@ -26,8 +26,11 @@ const Footer = () => {
             >
               Book a Call
             </a>
-            <a href="#" className="hover:text-accent transition-colors">
+            <a href="/privacy" className="hover:text-accent transition-colors">
               Privacy Policy
+            </a>
+            <a href="/terms" className="hover:text-accent transition-colors">
+              Terms
             </a>
             <span>© 2025 RoofScale</span>
           </div>
