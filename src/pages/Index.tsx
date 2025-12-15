@@ -1,13 +1,35 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+import PainSection from "@/components/PainSection";
+import SystemSection from "@/components/SystemSection";
+import LifestyleSection from "@/components/LifestyleSection";
+import AuditSection from "@/components/AuditSection";
+import Footer from "@/components/Footer";
+import { Helmet } from "react-helmet-async";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>RoofScale | Stop Losing Jobs to Voicemail</title>
+        <meta 
+          name="description" 
+          content="Turn missed calls and internet leads into booked roof inspections instantly. No extra staff required. The infrastructure for growing roofing companies." 
+        />
+      </Helmet>
+      
+      <div className="min-h-screen">
+        <Header />
+        <main>
+          <HeroSection />
+          <PainSection />
+          <SystemSection />
+          <LifestyleSection />
+          <AuditSection />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
