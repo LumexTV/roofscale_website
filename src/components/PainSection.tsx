@@ -1,20 +1,20 @@
-import { PhoneMissed, Clock, UserX } from "lucide-react";
+import { UserPlus, RefreshCw, PhoneMissed } from "lucide-react";
 
 const painPoints = [
   {
+    icon: UserPlus,
+    title: "New Leads Dry Up",
+    description: "You're relying on referrals and hoping the phone rings. Meanwhile, your competitors are actively generating fresh leads every day.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Old Leads Go Cold",
+    description: "You have hundreds of past leads sitting in a spreadsheet. They needed a roof but weren't ready. Now they're ready—and calling someone else.",
+  },
+  {
     icon: PhoneMissed,
-    title: "The Missed Call",
-    description: "You're on a job site. The phone rings. You don't answer. That homeowner just called your competitor. You lost $15k in 10 seconds.",
-  },
-  {
-    icon: Clock,
-    title: "The Slow Follow-Up",
-    description: "Web leads sit in your inbox for hours. If you don't call in 5 minutes, the lead is dead.",
-  },
-  {
-    icon: UserX,
-    title: "The Admin Trap",
-    description: "You try to fix it by hiring office staff, adding payroll and headaches you don't need.",
+    title: "Missed Calls = Lost Jobs",
+    description: "You're on a job site. The phone rings. You can't answer. That homeowner just booked with your competitor. You lost $15k in 10 seconds.",
   },
 ];
 
@@ -24,15 +24,15 @@ const PainSection = () => {
       <div className="container">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-primary mb-4">
-            THE HIDDEN LEAK IN YOUR BUSINESS
+            YOU'RE LEAVING MONEY ON THE TABLE
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            You're great at roofing, but your phone process is costing you crews.
+            Great roofers lose jobs not because of their work—but because leads slip through the cracks.
           </p>
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-          {painPoints.map((point, index) => (
+          {painPoints.map((point) => (
             <div 
               key={point.title}
               className="text-center p-8 rounded-xl bg-secondary/50 border border-border hover:border-accent/50 transition-all duration-300 hover:shadow-lg group"

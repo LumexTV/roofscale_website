@@ -8,16 +8,23 @@ const Footer = () => {
           <div className="flex items-center gap-4">
             <img src={logo} alt="RoofScale" className="h-10 w-auto" />
             <div>
-              <p className="font-bold text-primary-foreground">RoofScale</p>
+              <p className="font-bold text-primary-foreground">
+                ROOF<span className="text-accent">SCALE</span>
+              </p>
               <p className="text-sm text-primary-foreground/70">
-                The Infrastructure for Growing Roofing Companies
+                The Growth Engine for Roofing Companies
               </p>
             </div>
           </div>
           
           <div className="flex items-center gap-6 text-sm text-primary-foreground/70">
-            <a href="#" className="hover:text-accent transition-colors">
-              Contact
+            <a 
+              href="https://cal.com/timeslot/intro-call" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="hover:text-accent transition-colors"
+            >
+              Book a Call
             </a>
             <a href="#" className="hover:text-accent transition-colors">
               Privacy Policy
