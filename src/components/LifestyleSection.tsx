@@ -2,8 +2,9 @@ import lifestyleBg from "@/assets/lifestyle-bg.jpg";
 import { Check } from "lucide-react";
 
 const benefits = [
-  "No more playing phone tag.",
-  "No more stress about missed opportunities.",
+  "Fresh leads delivered to you daily.",
+  "Old leads reactivated and converted.",
+  "Every missed call recovered automatically.",
   "No expensive office manager salary.",
 ];
 
@@ -22,13 +23,13 @@ const LifestyleSection = () => {
       <div className="container relative z-10">
         <div className="max-w-3xl">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-primary-foreground mb-6">
-            GET OFF THE PHONE.<br />
-            <span className="text-accent">GET ON THE ROOF.</span>
+            BOOKED MEETINGS = <br />
+            <span className="text-accent">MORE MONEY.</span>
           </h2>
           
           <p className="text-lg md:text-xl text-primary-foreground/90 mb-10 leading-relaxed">
-            Your job is to build roofs and manage crews, not chase tire-kickers. 
-            Let our system handle the follow-up, the scheduling, and the reviews.
+            Your job is to build roofs and close deals, not chase leads. 
+            We handle the entire front-end—from finding prospects to booking them on your calendar.
           </p>
           
           <ul className="space-y-4">

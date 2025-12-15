@@ -3,6 +3,8 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { useToast } from "@/hooks/use-toast";
 
+const WEBHOOK_URL = "https://n8n.marticsolutions.de/webhook/c65520a4-b606-4f6d-b7b3-070354d164c5";
+
 const AuditSection = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -16,16 +18,38 @@ const AuditSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast({
-      title: "Audit Request Received!",
-      description: "We'll analyze your missed calls and get back to you within 24 hours.",
-    });
-    
-    setFormData({ name: "", phone: "", crews: "" });
-    setIsSubmitting(false);
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        mode: "no-cors",
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          crews: formData.crews,
+          timestamp: new Date().toISOString(),
+          source: "roofscale-website",
+        }),
+      });
+      
+      toast({
+        title: "Request Received!",
+        description: "We'll analyze your situation and get back to you within 24 hours.",
+      });
+      
+      setFormData({ name: "", phone: "", crews: "" });
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again or book a call directly.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -37,18 +61,18 @@ const AuditSection = () => {
               ONE ROOF PAYS FOR IT <span className="text-accent">FOREVER.</span>
             </h2>
             <p className="text-lg md:text-xl text-primary-foreground/80 max-w-2xl mx-auto">
-              Our entire system costs less than the profit from a single small repair job. 
-              If we save just one missed call a month, you're already profitable.
+              Our system costs less than the profit from a single job. 
+              We bring you multiple booked inspections every month—do the math.
             </p>
           </div>
           
           <div className="bg-background rounded-2xl p-8 md:p-12 shadow-2xl">
             <div className="text-center mb-8">
               <h3 className="text-2xl md:text-3xl font-bold text-primary mb-2">
-                GET A FREE "MISSED CALL" AUDIT
+                GET YOUR FREE GROWTH AUDIT
               </h3>
               <p className="text-muted-foreground">
-                We'll test your current phone lines and show you exactly how many leads you're losing right now.
+                We'll analyze your current lead flow and show you exactly how many jobs you're missing.
               </p>
             </div>
             
@@ -106,8 +130,20 @@ const AuditSection = () => {
                 className="w-full"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Submitting..." : "Show Me My Leaks"}
+                {isSubmitting ? "Submitting..." : "Show Me My Growth Potential"}
               </Button>
+              
+              <p className="text-center text-sm text-muted-foreground">
+                Or{" "}
+                <a 
+                  href="https://cal.com/timeslot/intro-call" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-accent font-semibold hover:underline"
+                >
+                  book a call directly →
+                </a>
+              </p>
             </form>
           </div>
         </div>
