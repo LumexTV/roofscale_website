@@ -9,7 +9,7 @@ const AuditSection = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    crews: "",
+    roofs: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -28,7 +28,7 @@ const AuditSection = () => {
         body: JSON.stringify({
           name: formData.name,
           phone: formData.phone,
-          crews: formData.crews,
+          roofs: formData.roofs,
           timestamp: new Date().toISOString(),
           source: "roofscale-website",
         }),
@@ -39,7 +39,7 @@ const AuditSection = () => {
         description: "We'll analyze your situation and get back to you within 24 hours.",
       });
       
-      setFormData({ name: "", phone: "", crews: "" });
+      setFormData({ name: "", phone: "", roofs: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -109,15 +109,15 @@ const AuditSection = () => {
               </div>
               
               <div>
-                <label htmlFor="crews" className="block text-sm font-semibold text-foreground mb-2">
-                  How many crews do you run?
+                <label htmlFor="roofs" className="block text-sm font-semibold text-foreground mb-2">
+                  How many installs are you averaging per month right now?
                 </label>
                 <Input
-                  id="crews"
+                  id="roofs"
                   type="text"
-                  placeholder="e.g., 3-5 crews"
-                  value={formData.crews}
-                  onChange={(e) => setFormData({ ...formData, crews: e.target.value })}
+                  placeholder="e.g., 10-15 roofs"
+                  value={formData.roofs}
+                  onChange={(e) => setFormData({ ...formData, roofs: e.target.value })}
                   required
                   className="h-14 text-lg"
                 />
